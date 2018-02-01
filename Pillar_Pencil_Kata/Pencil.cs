@@ -37,14 +37,35 @@ namespace Pillar_Pencil_Kata
             Durability_enabled = true; //this pencil can be dulled
             Default_durability = Initial_Durabiltiy;
             Current_durability = Initial_Durabiltiy;
-
             Pencil_Length = Initial_Length;
 
         }
         public void Erase(String Substring_to_be_erased)
         {
-            return;
+            int index_of_substring = -1;
+
+            if (Substring_to_be_erased == "" || Paper == "")
+            {
+                return;
+            }
+
+            index_of_substring = Paper.LastIndexOf(Substring_to_be_erased);
+
+            if(index_of_substring < 0)
+            {
+                return;
+            }
+
+            string erasedsection = new string(' ', Substring_to_be_erased.Length);
+
+            string newpaper = Paper.Substring(0, index_of_substring);
+            newpaper += erasedsection;
+            newpaper += Paper.Substring(index_of_substring+Substring_to_be_erased.Length);
+            Paper = newpaper;
+            
         }
+
+
         public void Sharpen()
         {
             if(Durability_enabled && Pencil_Length > 1)
