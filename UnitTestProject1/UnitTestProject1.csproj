@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Pencil_Test_.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Degredation_Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

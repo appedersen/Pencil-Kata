@@ -10,9 +10,16 @@ namespace Pillar_Pencil_Kata
     {
         string Paper; //All that has been written is stored here 
 
+
+
         public Pencil()
         {
             Paper = ""; //Brand new paper should be blank
+        }
+
+        public Pencil(int Durability)
+        {
+            
         }
 
         public void Write(string Intended_Message)
