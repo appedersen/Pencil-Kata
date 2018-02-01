@@ -35,5 +35,25 @@ namespace UnitTestProject1
             Pencil_instance.Erase("red");
             Assert.AreEqual("The red house with a     gate was    .", Pencil_instance.Read_Paper());
         }
+
+        [TestMethod]
+        public void Pencil_Can_Erase_A_Leading_Phrase()
+        {
+            Pencil Pencil_instance = new Pencil();
+            Pencil_instance.Write("I am programming in C#");
+            Pencil_instance.Erase("I am");
+            Assert.AreEqual("     programming in C#", Pencil_instance.Read_Paper());
+        }
+
+        [TestMethod]
+        public void Pencil_Can_Erase_A_Trailing_Phrase()
+        {
+            Pencil Pencil_instance = new Pencil();
+            Pencil_instance.Write("I am programming in C#");
+            Pencil_instance.Erase("in C#");
+            Assert.AreEqual("I am programming      ", Pencil_instance.Read_Paper());
+        }
+
+
     }
 }
