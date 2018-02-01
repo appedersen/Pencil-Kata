@@ -16,19 +16,40 @@ namespace Pillar_Pencil_Kata
         bool Durability_enabled; //The requirements said pencils _can_ have durability
                                  //so I am assuming that a pencil without a defined durability is
                                  //indestructible. In a real case I'd have this clarified. 
-
+        int Pencil_Length; 
         public Pencil()
         {
             Paper = ""; //Brand new paper should be blank
             Durability_enabled = false;
         }
 
-        public Pencil(int Initial_Durabiltiy) 
+        public Pencil(int Initial_Durabiltiy) //We are provided 
         {
             Paper = "";
             Durability_enabled = true; //this pencil can be dulled
             Default_durability = Initial_Durabiltiy;
             Current_durability = Initial_Durabiltiy;
+        }
+
+        public Pencil(int Initial_Durabiltiy, int Initial_Length)
+        {
+            Paper = "";
+            Durability_enabled = true; //this pencil can be dulled
+            Default_durability = Initial_Durabiltiy;
+            Current_durability = Initial_Durabiltiy;
+
+            Pencil_Length = Initial_Length;
+
+        }
+
+        public void Sharpen()
+        {
+            if(Durability_enabled && Pencil_Length > 1)
+            {
+                Current_durability = Default_durability;
+                Pencil_Length--;
+            }
+
         }
 
         public void Write(string Intended_Message)
