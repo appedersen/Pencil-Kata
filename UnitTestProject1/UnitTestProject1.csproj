@@ -51,6 +51,7 @@
     <Compile Include="Pencil_Test_.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Degredation_Tests.cs" />
+    <Compile Include="Sharpen_Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
