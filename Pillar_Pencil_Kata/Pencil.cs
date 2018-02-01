@@ -41,7 +41,10 @@ namespace Pillar_Pencil_Kata
             Pencil_Length = Initial_Length;
 
         }
-
+        public void Erase(String Substring_to_be_erased)
+        {
+            return;
+        }
         public void Sharpen()
         {
             if(Durability_enabled && Pencil_Length > 1)
