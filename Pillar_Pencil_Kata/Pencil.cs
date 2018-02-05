@@ -12,57 +12,91 @@ namespace Pillar_Pencil_Kata
 
         int Default_durability; //Could be long if really durable pencils are required
         int Current_durability;
+        int Eraser_durability;
 
         bool Durability_enabled; //The requirements said pencils _can_ have durability
                                  //so I am assuming that a pencil without a defined durability is
                                  //indestructible. In a real case I'd have this clarified. 
-        int Pencil_Length; 
+        bool Eraser_durability_enabled;
+
+        int Pencil_Length;
         public Pencil()
         {
             Paper = ""; //Brand new paper should be blank
             Durability_enabled = false;
+            Eraser_durability_enabled = false;
         }
 
-        public Pencil(int Initial_Durabiltiy) //We are provided 
+        public Pencil(int Initial_Durabiltiy) //Overload for constructor, provided an initial durability
         {
             Paper = "";
+            Pencil_Length = 1;
             Durability_enabled = true; //this pencil can be dulled
             Default_durability = Initial_Durabiltiy;
             Current_durability = Initial_Durabiltiy;
+            Eraser_durability_enabled = false;
         }
 
-        public Pencil(int Initial_Durabiltiy, int Initial_Length)
+        public Pencil(int Initial_Durabiltiy, int Initial_Length)  //Overload for constructor, provided an initial durability and length
         {
             Paper = "";
             Durability_enabled = true; //this pencil can be dulled
             Default_durability = Initial_Durabiltiy;
             Current_durability = Initial_Durabiltiy;
             Pencil_Length = Initial_Length;
+            Eraser_durability_enabled = false;
+        }
+
+        public Pencil(int Initial_Durabiltiy, int Initial_Length, int Eraser_Initial_Durability)  //Overload for constructor, provided an initial durability and length
+        {
+            Paper = "";
+            Durability_enabled = true; //this pencil can be dulled
+            Default_durability = Initial_Durabiltiy;
+            Current_durability = Initial_Durabiltiy;
+            Pencil_Length = Initial_Length;
+            Eraser_durability_enabled = true;
 
         }
+
         public void Erase(String Substring_to_be_erased)
         {
             int index_of_substring = -1;
+            int Undeleted_Characters = 0;
+
+            
+
 
             if (Substring_to_be_erased == "" || Paper == "")
             {
                 return;
             }
 
-            index_of_substring = Paper.LastIndexOf(Substring_to_be_erased);
-
-            if(index_of_substring < 0)
+            if(Substring_to_be_erased.Length > Eraser_durability && Eraser_durability_enabled == true)
             {
-                return;
+                Undeleted_Characters = Substring_to_be_erased.Length - Eraser_durability;
             }
 
-            string erasedsection = new string(' ', Substring_to_be_erased.Length);
 
-            string newpaper = Paper.Substring(0, index_of_substring);
+
+            index_of_substring = Paper.LastIndexOf(Substring_to_be_erased);
+
+            if (index_of_substring < 0)
+            {
+                    return;
+            }
+
+            string erasedsection = new string(' ', Substring_to_be_erased.Length - Undeleted_Characters);
+
+            string newpaper = Paper.Substring(0, index_of_substring + Undeleted_Characters);
             newpaper += erasedsection;
-            newpaper += Paper.Substring(index_of_substring+Substring_to_be_erased.Length);
+            newpaper += Paper.Substring(index_of_substring + Substring_to_be_erased.Length);
             Paper = newpaper;
             
+
+
+        
+
+
         }
 
 
@@ -78,7 +112,6 @@ namespace Pillar_Pencil_Kata
 
         public void Write(string Intended_Message)
         {
-
 
             if (Durability_enabled == false)
             {
