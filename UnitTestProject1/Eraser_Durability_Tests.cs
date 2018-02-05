@@ -26,6 +26,7 @@ namespace UnitTestProject1
             Assert.AreEqual("Books    ", Pencil_instance.Read_Paper());
         }
 
+        [TestMethod]
         public void Eraser_With_No_Durability_Cannot_Erase()
         {
             Pencil Pencil_instance = new Pencil(100, 100, 0);
@@ -34,6 +35,7 @@ namespace UnitTestProject1
             Assert.AreEqual("Sir Sam Vimes", Pencil_instance.Read_Paper());
         }
 
+        [TestMethod]
         public void Eraser_Durability_Persists_Through_Erases()
         {
             Pencil Pencil_instance = new Pencil(100, 100, 6);

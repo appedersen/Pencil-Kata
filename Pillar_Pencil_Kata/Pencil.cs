@@ -54,6 +54,8 @@ namespace Pillar_Pencil_Kata
             Default_durability = Initial_Durabiltiy;
             Current_durability = Initial_Durabiltiy;
             Pencil_Length = Initial_Length;
+
+            Eraser_durability = Eraser_Initial_Durability;
             Eraser_durability_enabled = true;
 
         }

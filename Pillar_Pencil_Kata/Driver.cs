@@ -13,6 +13,7 @@ namespace Pillar_Pencil_Kata
         {
             //Driver doesn't do anything, we're testing the Pencil object specifically.
             //Driver just asks for key input and then closes.
+
             System.Console.WriteLine("Press any key to exit");
             System.Console.ReadKey();
         }
