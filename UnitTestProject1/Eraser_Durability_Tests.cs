@@ -50,7 +50,15 @@ namespace UnitTestProject1
             Assert.AreEqual("I ran all night        ", Pencil_instance.Read_Paper());
         }
 
+        [TestMethod]
+        public void Eraser_Durability_Does_not_Decrease_on_Whitespace()
+        {
+            Pencil Pencil_instance = new Pencil(100, 100, 11);
+            Pencil_instance.Write("I ran all night and day");
+            Pencil_instance.Erase("night and day");
 
+            Assert.AreEqual("I ran all              ", Pencil_instance.Read_Paper());
+        }
 
     }
 }
