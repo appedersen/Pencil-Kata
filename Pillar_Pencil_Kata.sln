@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pillar_Pencil_Kata", "Pillar_Pencil_Kata\Pillar_Pencil_Kata.csproj", "{42C6D30A-8BAB-4F27-939B-5C4A9B05CF46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{3CA3A52E-641B-4D2F-BBB1-4EFD8F728010}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pencil_Test_Cases", "UnitTestProject1\Pencil_Test_Cases.csproj", "{3CA3A52E-641B-4D2F-BBB1-4EFD8F728010}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

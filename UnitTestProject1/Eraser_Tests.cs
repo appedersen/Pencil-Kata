@@ -54,6 +54,15 @@ namespace UnitTestProject1
             Assert.AreEqual("I am programming      ", Pencil_instance.Read_Paper());
         }
 
+        [TestMethod]
+        public void Pencil_Wont_Erase_Incorectly()
+        {
+            Pencil Pencil_instance = new Pencil();
+            Pencil_instance.Write("You won't find it here");
+            Pencil_instance.Erase("Your target");
+            Assert.AreEqual("You won't find it here", Pencil_instance.Read_Paper());
+        }
+
 
     }
 }
