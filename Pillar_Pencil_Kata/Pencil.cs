@@ -63,9 +63,9 @@ namespace Pillar_Pencil_Kata
         public void Erase(String Substring_to_be_erased)
         {
             int index_of_substring = -1;
-            int Undeleted_Characters = 0;
+            int Undeleted_Character_Count = 0;
 
-            
+
 
 
             if (Substring_to_be_erased == "" || Paper == "")
@@ -73,9 +73,28 @@ namespace Pillar_Pencil_Kata
                 return;
             }
 
-            if(Substring_to_be_erased.Length > Eraser_durability && Eraser_durability_enabled == true)
+            if (Substring_to_be_erased.Length > Eraser_durability && Eraser_durability_enabled == true)
             {
-                Undeleted_Characters = Substring_to_be_erased.Length - Eraser_durability;
+                //Undeleted_Character_Count = Substring_to_be_erased.Length - Eraser_durability;
+
+                int Non_White_Space_Characters = 0;
+                Undeleted_Character_Count = Substring_to_be_erased.Length;
+
+                for (int i = Substring_to_be_erased.Length - 1; i >= 0; i--)
+                {
+                    if(Non_White_Space_Characters < Eraser_durability)
+                    {
+                        char D = Substring_to_be_erased[i];
+                        if (Char.IsWhiteSpace(Substring_to_be_erased[i]) == false)
+                        {
+                            Non_White_Space_Characters++;
+                        }
+
+                        Undeleted_Character_Count--;
+                    }
+
+                    
+                }
             }
 
 
@@ -84,19 +103,27 @@ namespace Pillar_Pencil_Kata
 
             if (index_of_substring < 0)
             {
-                    return;
+                return; //Substring wasn't found
             }
 
-            string erasedsection = new string(' ', Substring_to_be_erased.Length - Undeleted_Characters);
 
-            string newpaper = Paper.Substring(0, index_of_substring + Undeleted_Characters);
+            string erasedsection = new string(' ', Substring_to_be_erased.Length - Undeleted_Character_Count);
+
+            string newpaper = Paper.Substring(0, index_of_substring + Undeleted_Character_Count);
+
             newpaper += erasedsection;
             newpaper += Paper.Substring(index_of_substring + Substring_to_be_erased.Length);
             Paper = newpaper;
-            
+
+            Eraser_durability -= Substring_to_be_erased.Length - Undeleted_Character_Count;
+            if (Eraser_durability < 0)
+            {
+                Eraser_durability = 0; //This line of code shouldn't be triggered, but it's a safeguard since a negative
+                                       //durability would throw off the indexes being used for string manipulation
+            }
 
 
-        
+
 
 
         }
