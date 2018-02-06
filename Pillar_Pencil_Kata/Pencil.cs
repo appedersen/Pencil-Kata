@@ -72,8 +72,12 @@ namespace Pillar_Pencil_Kata
 
             string Newly_Edited_Segment = Build_Edit_String(Text_to_insert);
             string Beginning_Segment = Paper.Substring(0, Index_of_Last_Erased_Segment);
-            string Trailing_Segment = Paper.Substring(Index_of_Last_Erased_Segment + Text_to_insert.Length);
+            string Trailing_Segment = "";
 
+            if (Index_of_Last_Erased_Segment + Text_to_insert.Length < Paper.Length)
+            {
+                Trailing_Segment = Paper.Substring(Index_of_Last_Erased_Segment + Text_to_insert.Length);
+            }
             Paper = Rebuild_Paper(Beginning_Segment, Newly_Edited_Segment, Trailing_Segment);
 
             return;
@@ -85,7 +89,7 @@ namespace Pillar_Pencil_Kata
 
             for (int i = 0; i < Text_to_insert.Length; i++)
             {
-                if(Index_of_Last_Erased_Segment + i <= Paper.Length)
+                if(Index_of_Last_Erased_Segment + i < Paper.Length)
                 {
                     if(char.IsWhiteSpace(Paper[Index_of_Last_Erased_Segment + i]) || char.IsWhiteSpace(Text_to_insert[i]))
                     {
@@ -120,13 +124,10 @@ namespace Pillar_Pencil_Kata
                 Undeleted_Character_Count = Get_Count_Of_Undeleted_Characters_From_Partial_Erase(Substring_to_be_erased);
             }
 
-
-
-            
-
             if (index_of_substring >= 0)
             {
 
+                Index_of_Last_Erased_Segment = index_of_substring;
                 string Initial_Segment = Paper.Substring(0, index_of_substring + Undeleted_Character_Count);
                 string Modified_Segment = new string(' ', Substring_to_be_erased.Length - Undeleted_Character_Count);
                 string Trailing_Segment = Paper.Substring(index_of_substring + Substring_to_be_erased.Length);
