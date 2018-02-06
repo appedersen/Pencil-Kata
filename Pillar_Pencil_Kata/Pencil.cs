@@ -100,6 +100,10 @@ namespace Pillar_Pencil_Kata
                         Editted_Text += "@";
                     }
                 }
+                else
+                {
+                    Editted_Text += Text_to_insert[i];
+                }
             }
 
             return Editted_Text;
