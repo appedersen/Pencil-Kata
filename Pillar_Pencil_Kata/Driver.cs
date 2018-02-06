@@ -11,14 +11,7 @@ namespace Pillar_Pencil_Kata
     {
         static void Main(string[] args)
         {
-            //Driver doesn't do anything, we're testing the Pencil object specifically.
-            //Driver just asks for key input and then closes.
-            Pencil Pencil_instance = new Pencil(100, 100, 11);
-            Pencil_instance.Write("I ran all night and day");
-            Pencil_instance.Erase("night and day"); 
 
-            System.Console.WriteLine("Press any key to exit");
-            System.Console.ReadKey();
         }
     }
 }

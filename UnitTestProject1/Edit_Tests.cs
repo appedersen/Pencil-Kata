@@ -29,7 +29,7 @@ namespace UnitTestProject1
             Pencil_instance.Edit("walked");
 
 
-            Assert.AreEqual("I walk@ @to a wall", Pencil_instance.Read_Paper());
+            Assert.AreEqual("I walk@@to a wall", Pencil_instance.Read_Paper());
         }
 
         [TestMethod]
