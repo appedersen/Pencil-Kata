@@ -13,14 +13,14 @@ namespace UnitTestProject1
         [TestMethod]
         public void Pencil_Can_Write()
         {
-            Pencil Pencil_instance = new Pencil();
+            Pencil Pencil_instance = new Pencil(100, 100, 100);
             Pencil_instance.Write("Dear Santa");
             Assert.AreEqual("Dear Santa", Pencil_instance.Read_Paper());
         }
         [TestMethod]
         public void Pencil_Can_Write_Multiple_Times()
         {
-            Pencil Pencil_instance = new Pencil();
+            Pencil Pencil_instance = new Pencil(100, 100, 100);
 
             Pencil_instance.Write("She sells seashells");
             Pencil_instance.Write(" down by the seashore");
@@ -31,7 +31,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void Pencil_Can_Have_Writers_Block()
         {
-            Pencil Pencil_instance = new Pencil();
+            Pencil Pencil_instance = new Pencil(100, 100, 100);
 
             Pencil_instance.Write("");
 
@@ -41,7 +41,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void Paper_Should_Be_Pristine_If_Not_Written_To()
         {
-            Pencil Pencil_instance = new Pencil();
+            Pencil Pencil_instance = new Pencil(100, 100, 100);
             Assert.AreEqual("", Pencil_instance.Read_Paper()); 
 
         }

@@ -10,7 +10,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void Pencil_Can_Edit_With_Blank_Space()
         {
-            Pencil Pencil_instance = new Pencil();
+            Pencil Pencil_instance = new Pencil(100, 100, 100);
             Pencil_instance.Write("Wabbit Season");
             Pencil_instance.Erase("Wabbit");
             Pencil_instance.Edit("Duck");
@@ -23,7 +23,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void Pencil_Can_Edit_And_Collide_with_Text()
         {
-            Pencil Pencil_instance = new Pencil();
+            Pencil Pencil_instance = new Pencil(100, 100, 100);
             Pencil_instance.Write("I ran into a wall");
             Pencil_instance.Erase("ran");
             Pencil_instance.Edit("walked");
@@ -35,7 +35,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void Pencil_Can_Edit_Past_Existing_Text()
         {
-            Pencil Pencil_instance = new Pencil();
+            Pencil Pencil_instance = new Pencil(100, 100, 100);
             Pencil_instance.Write("Mary had a big");
             Pencil_instance.Erase("big");
             Pencil_instance.Edit("little lamb");
