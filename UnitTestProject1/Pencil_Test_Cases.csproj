@@ -54,6 +54,7 @@
     <Compile Include="Sharpen_Tests.cs" />
     <Compile Include="Eraser_Tests.cs" />
     <Compile Include="Eraser_Durability_Tests.cs" />
+    <Compile Include="Edit_Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

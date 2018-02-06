@@ -60,6 +60,12 @@ namespace Pillar_Pencil_Kata
 
         }
 
+        public void Edit(string Text_to_insert)
+        {
+            return;
+        }
+
+
         public void Erase(String Substring_to_be_erased)
         {
             int index_of_substring = -1;
@@ -80,6 +86,9 @@ namespace Pillar_Pencil_Kata
                 int Non_White_Space_Characters = 0;
                 Undeleted_Character_Count = Substring_to_be_erased.Length;
 
+
+                //We iterate backwards through the string to determine how much eraser durability
+                //is used, as whitespace 
                 for (int i = Substring_to_be_erased.Length - 1; i >= 0; i--)
                 {
                     if(Non_White_Space_Characters < Eraser_durability)
