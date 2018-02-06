@@ -87,10 +87,8 @@ namespace Pillar_Pencil_Kata
 
                 if (index_of_substring >= 0)
                 {
-
                     int Erased_Char_Size = Substring_to_be_erased.Length;
                     Rebuild_Paper_For_Erase(index_of_substring, Undeleted_Character_Count, Erased_Char_Size);
-                    
                 }
             }
 
@@ -100,11 +98,13 @@ namespace Pillar_Pencil_Kata
         private void Rebuild_Paper_For_Erase(int Index_of_Erase_Start, int Undeleted_Character_Count, int Erased_Char_Size)
         {
             Index_of_Last_Erased_Segment = Index_of_Erase_Start;
+
             string Initial_Segment = Paper.Substring(0, Index_of_Erase_Start + Undeleted_Character_Count);
             string Modified_Segment = new string(' ', Erased_Char_Size - Undeleted_Character_Count);
             string Trailing_Segment = Paper.Substring(Index_of_Erase_Start + Erased_Char_Size);
 
             Paper = Rebuild_Paper(Initial_Segment, Modified_Segment, Trailing_Segment);
+
             Eraser_durability -= Erased_Char_Size - Undeleted_Character_Count;
             if (Eraser_durability < 0)
             {
@@ -124,46 +124,44 @@ namespace Pillar_Pencil_Kata
                 Current_durability = Default_durability;
                 Pencil_Length--;
             }
-
         }
 
         public void Write(string Intended_Message)
         {
+            int Durability_Cost;
             for(int Character_Postition = 0; Character_Postition < Intended_Message.Length; Character_Postition++)
             {
                 if(char.IsUpper(Intended_Message[Character_Postition]))
                 {
-                    if(Current_durability >= 2)
-                    {
-                        Paper += Intended_Message[Character_Postition];
-                        Current_durability -= 2;
-                    }
-                    else
-                    {
-                        Paper += " ";
-                    }
+                    Durability_Cost = 2;
                 }
 
                 else if(char.IsWhiteSpace(Intended_Message[Character_Postition]))
                 {
-                    Paper += Intended_Message[Character_Postition];
+                    Durability_Cost = 0;
                 }
 
                 else
                 {
-                    if (Current_durability >= 1)
-                    {
-                        Paper += Intended_Message[Character_Postition];
-                        Current_durability -= 1;
-                    }
-                    else
-                    {
-                        Paper += " ";
-                    }
+                    Durability_Cost = 1;
                 }
 
-
+                Write_Character(Intended_Message[Character_Postition],Durability_Cost);
             }
+        }
+
+        private void Write_Character(char Character_To_Write, int Durability_Reduction)
+        {
+            if (Current_durability >= Durability_Reduction)
+            {
+                Paper += Character_To_Write;
+                Current_durability -= Durability_Reduction;
+            }
+            else
+            {
+                Paper += " ";
+            }
+            return;
         }
 
         public string Read_Paper()
