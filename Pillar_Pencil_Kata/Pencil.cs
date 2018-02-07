@@ -30,6 +30,20 @@ namespace Pillar_Pencil_Kata
 
         }
 
+        public int Get_Pencil_Length()
+        {
+            return Pencil_Length;
+        }
+        public int Get_Pencil_Durability()
+        {
+            return Current_durability;
+        }
+        public int Get_Pencil_Eraser_Durability()
+        {
+            return Eraser_durability;
+        }
+
+
         public void Edit(string Text_to_insert)
         {
             string Newly_Edited_Segment = Build_Edit_String(Text_to_insert);

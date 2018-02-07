@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pillar_Pencil_Kata", "Pilla
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pencil_Test_Cases", "UnitTestProject1\Pencil_Test_Cases.csproj", "{3CA3A52E-641B-4D2F-BBB1-4EFD8F728010}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pencil_Demonstration_Program", "Pencil_Demonstration_Program\Pencil_Demonstration_Program.csproj", "{3C60F352-7955-4B42-93E2-8C27949A7DC1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3CA3A52E-641B-4D2F-BBB1-4EFD8F728010}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CA3A52E-641B-4D2F-BBB1-4EFD8F728010}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CA3A52E-641B-4D2F-BBB1-4EFD8F728010}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C60F352-7955-4B42-93E2-8C27949A7DC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C60F352-7955-4B42-93E2-8C27949A7DC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C60F352-7955-4B42-93E2-8C27949A7DC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C60F352-7955-4B42-93E2-8C27949A7DC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
